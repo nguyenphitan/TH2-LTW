@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Detail</title>
+        <style>
+            form span {
+                display: inline-block;
+                text-align: right;
+                width: 140px;
+            }
+            
+            .message {
+                color: red;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Product</h1>
+        <i class="message" th:text="${messageError}"></i>
+        
+        <form action="/products" method="POST" th:if="${product == null}">
+            <span>Product Code:</span> <input type="text" name="code" th:value="${product == null ? code : product.code}" /> <br/> <br/>
+            <span>Product Description:</span> <input style="width: 340px;" type="text" name="description" th:value="${product == null ? description : product.description}"/> <br/> <br/>
+            <span>Product Price:</span> <input type="text" name="price" th:value="${product == null ? price : product.price}"/> <br/> <br/>
+            <input style="cursor: pointer; margin-left: 10px; padding: auto 8px; width: 140px;" type="submit" value="Update Product"/>
+            <button> <a href="/products" style="text-decoration: none; color: black; padding: 0 8px;">View Products</a> </button>
+        </form>
+        
+        <form th:action="'/products/update/' + ${product.id}" method="POST" th:if="${product != null}">
+            <span>Product Code:</span> <input type="text" name="code" th:value="${product == null ? code : product.code}" /> <br/> <br/>
+            <span>Product Description:</span> <input style="width: 340px;" type="text" name="description" th:value="${product == null ? description : product.description}"/> <br/> <br/>
+            <span>Product Price:</span> <input type="text" name="price" th:value="${product == null ? price : product.price}"/> <br/> <br/>
+            <input style="cursor: pointer; margin-left: 10px; padding: auto 8px; width: 140px;" type="submit" value="Update Product"/>
+            <button> <a href="/products" style="text-decoration: none; color: black; padding: 0 8px;">View Products</a> </button>
+        </form>
+        
+    </body>
+</html>
