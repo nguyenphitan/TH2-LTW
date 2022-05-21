@@ -1,4 +1,4 @@
-# Bài thực hành số 2 - Lập trình web
+# Bài thực hành số 2 - Lập trình web - Nhóm 10
 
 ### Mô tả
 	1. Trang index.html sẽ có 1 đường dẫn đến trang view product
